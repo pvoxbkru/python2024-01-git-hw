@@ -1,0 +1,9 @@
+platform,model,software
+ISR G1,"c1800, c2800, c3800",15.1(4)M12a
+ISR G2,"c1900, c2900, c3900, c819",15.5(3)M6
+7200 Series,NPE-G1/G2 DRAM >= 512,12.2(33)SRE15
+7600 Series,"Sup32, Sup720",12.2(33)SRE12
+7600 Series,RSP720,12.2(33)SRE15
+ASR1000 Series,,3.16.5S
+ASR9000 Series,,5.3.4+latest SP
+ASR920 Series,,3.16.5S
