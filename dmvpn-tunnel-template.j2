@@ -10,7 +10,7 @@ interface Tunnel2
  ip nhrp nhs {{ dmvpn.hub.main.ip  }} nbma {{ dmvpn.hub.main.nbma }}
  ip nhrp registration no-unique
  ip tcp adjust-mss 1232
- load-interval 60
+ load-interval 30
  tunnel source Cellular0
  tunnel destination {{ dmvpn.hub.main.nbma }}
  tunnel key {{ interfaces.tunnel.1.key }}
