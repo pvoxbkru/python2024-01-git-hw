@@ -23,3 +23,27 @@ Replacing slim-select with Tom-Select
 Displaying additional object attributes in dropdown form fields
 Enabling opt-in HTMX-powered navigation (see #14736)
 Widespread cleanup & standardization of UI components
+
+Enhancements
+
+#12776 - Introduce the htmx_talble template tag to simplify the rendering of embedded tables
+#12851 - Replace the deprecated Bleach HTML sanitization library with nh3
+#13283 - Display additional context on API-backed dropdown form fields (e.g. object descriptions)
+#13918 - Add facility field to Location model
+#14237 - Automatically clear dependent selection form fields when modifying a parent selection
+#14279 - Make the current request available as context when running custom validators
+#14454 - Include member devices in the REST API representation of virtual chassis
+#14637 - Upgrade to Django 5.0
+#14672 - Add support for Python 3.12
+#14728 - The plugins list view has been moved from the legacy admin UI to the main NetBox UI
+#14729 - All background task views have been moved from the legacy admin UI to the main NetBox UI
+#14736 - Introduce a user preference to enable HTMX-powered navigation
+#14438 - Track individual custom scripts as database objects
+#15131 - Automatically annotate related object counts on REST API querysets
+#15237 - Ensure consistent filtering ability for all model fields by testing for missing/incorrect filters
+#15238 - Include the description field in "brief" REST API serializations
+#15278 - BaseModelSerializer now takes a nested keyword argument allowing it to represent a related object
+#15383 - Standardize filtering logic for the parents of recursively-nested models (parent & ancestor filters)
+#15413 - The global search engine now supports caching of non-field object attributes
+#15490 - Custom validators can now reference related object attributes via dotted paths
+
