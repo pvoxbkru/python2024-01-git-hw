@@ -47,3 +47,26 @@ Enhancements
 #15413 - The global search engine now supports caching of non-field object attributes
 #15490 - Custom validators can now reference related object attributes via dotted paths
 
+Other Changes
+
+#10587 - Enable pagination and filtering for custom script logs
+#12325 - The Django admin UI is now disabled by default (set DJANGO_ADMIN_ENABLED to True to enable it)
+#12510 - Dropped support for legacy reports
+#12795 - NetBox now uses custom User and Group models rather than the stock models provided by Django
+#13647 - Squash all database migrations prior to v3.7
+#14092 - Remove backward compatibility for importing plugin resources from extras.plugins (now netbox.plugins)
+#14638 - Drop support for Python 3.8 and 3.9
+#14657 - Remove backward compatibility for old permissions mapping under ActionsMixin
+#14658 - Remove backward compatibility for importing process_webhook() from extras.webhooks_worker (now extras.webhooks.send_webhook())
+#14740 - Remove the obsolete BootstrapMixin form mixin class
+#15042 - The logic for registering models & model features now executes under the ready() method of individual app configs, rather than relying on the class_prepared signal
+#15099 - Remove obsolete device_role and device_role_id filters for devices
+#15100 - Remove obsolete NullableCharField class
+#15154 - The installation documentation been extended to include instructions and an example configuration file for uWSGI as an alternative to gunicorn
+#15193 - Switch to compiled distribution of the psycopg library
+#15277 - Replace references to ContentType without ObjectType proxy model & standardize field names
+#15292 - Remove obsolete device_role attribute from Device model (this field was renamed to role in v3.6)
+#15357 - The object_type field on the CustomField model has been renamed to related_object_type to avoid confusion with its object_types field
+#15401 - PostgreSQL indexes and sequence tables for the relocated L2VPN models (see #14311) have been renamed
+#15462 - Relocate resources from the utilities.utils module
+#15464 - The many-to-many relationships for ObjectPermission are now defined on the custom User and Group models
