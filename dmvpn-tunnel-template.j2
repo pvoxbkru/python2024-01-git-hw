@@ -1,0 +1,25 @@
+!
+interface Loopback2
+ description -= RID =-
+ ip address {{ interfaces.loopback.0.ip }} 255.255.255.255
+!
+interface Tunnel2
+ description {{ interfaces.tunnel.1.description }}
+ ip address {{ interfaces.tunnel.1.ip }} {{ interfaces.tunnel.1.mask }}
+ ip nhrp network-id {{ interfaces.tunnel.1.network_id }}
+ ip nhrp nhs {{ dmvpn.hub.main.ip  }} nbma {{ dmvpn.hub.main.nbma }}
+ ip nhrp registration no-unique
+ ip tcp adjust-mss 1232
+ load-interval 60
+ tunnel source Cellular0
+ tunnel destination {{ dmvpn.hub.main.nbma }}
+ tunnel key {{ interfaces.tunnel.1.key }}
+ tunnel vrf {{ interfaces.tunnel.1.fvrf }}
+ tunnel protection ipsec profile {{ interfaces.tunnel.1.ipsec_profile }}
+!
+ntp source Loopback0
+ntp update-calendar
+ntp server 1.2.3.4
+ntp server 4.3.2.1
+!
+
