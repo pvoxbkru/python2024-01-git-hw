@@ -9,3 +9,17 @@ The parent and parent_id filters for locations now return only immediate childre
 The object_type field on the CustomField model has been renamed to related_object_type.
 The utilities.utils module has been removed and its resources reorganized into separate modules organized by function.
 The obsolete NullableCharField class has been removed. (Use Django's stock CharField class with null=True instead.)
+
+New Features
+
+Complete UI Refresh (#12128)
+
+The NetBox user interface has been completely refreshed and updated. This massive effort entailed:
+
+Refactoring the base HTML templates
+Moving from Boostrap 5.0 to Bootstrap 5.3
+Adopting the Tabler UI theme
+Replacing slim-select with Tom-Select
+Displaying additional object attributes in dropdown form fields
+Enabling opt-in HTMX-powered navigation (see #14736)
+Widespread cleanup & standardization of UI components
