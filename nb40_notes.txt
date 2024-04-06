@@ -1,0 +1,72 @@
+Breaking Changes
+
+Support for Python 3.8 and 3.9 has been removed.
+The format for GraphQL query filters has changed. Please see the GraphQL documentation for details and examples.
+The deprecated device_role & device_role_id filters for devices have been removed. (Use role and role_id instead.)
+The obsolete device_role field has been removed from the REST API serializer for devices. (Use role instead.)
+The legacy reports functionality has been dropped. Reports will be automatically converted to custom scripts on upgrade.
+The parent and parent_id filters for locations now return only immediate children of the specified location. (Use ancestor and ancestor_id to return all descendants.)
+The object_type field on the CustomField model has been renamed to related_object_type.
+The utilities.utils module has been removed and its resources reorganized into separate modules organized by function.
+The obsolete NullableCharField class has been removed. (Use Django's stock CharField class with null=True instead.)
+
+New Features
+
+Complete UI Refresh (#12128)
+
+The NetBox user interface has been completely refreshed and updated. This massive effort entailed:
+
+Refactoring the base HTML templates
+Moving from Boostrap 5.0 to Bootstrap 5.3
+Adopting the Tabler UI theme
+Replacing slim-select with Tom-Select
+Displaying additional object attributes in dropdown form fields
+Enabling opt-in HTMX-powered navigation (see #14736)
+Widespread cleanup & standardization of UI components
+
+Enhancements
+
+#12776 - Introduce the htmx_talble template tag to simplify the rendering of embedded tables
+#12851 - Replace the deprecated Bleach HTML sanitization library with nh3
+#13283 - Display additional context on API-backed dropdown form fields (e.g. object descriptions)
+#13918 - Add facility field to Location model
+#14237 - Automatically clear dependent selection form fields when modifying a parent selection
+#14279 - Make the current request available as context when running custom validators
+#14454 - Include member devices in the REST API representation of virtual chassis
+#14637 - Upgrade to Django 5.0
+#14672 - Add support for Python 3.12
+#14728 - The plugins list view has been moved from the legacy admin UI to the main NetBox UI
+#14729 - All background task views have been moved from the legacy admin UI to the main NetBox UI
+#14736 - Introduce a user preference to enable HTMX-powered navigation
+#14438 - Track individual custom scripts as database objects
+#15131 - Automatically annotate related object counts on REST API querysets
+#15237 - Ensure consistent filtering ability for all model fields by testing for missing/incorrect filters
+#15238 - Include the description field in "brief" REST API serializations
+#15278 - BaseModelSerializer now takes a nested keyword argument allowing it to represent a related object
+#15383 - Standardize filtering logic for the parents of recursively-nested models (parent & ancestor filters)
+#15413 - The global search engine now supports caching of non-field object attributes
+#15490 - Custom validators can now reference related object attributes via dotted paths
+
+Other Changes
+
+#10587 - Enable pagination and filtering for custom script logs
+#12325 - The Django admin UI is now disabled by default (set DJANGO_ADMIN_ENABLED to True to enable it)
+#12510 - Dropped support for legacy reports
+#12795 - NetBox now uses custom User and Group models rather than the stock models provided by Django
+#13647 - Squash all database migrations prior to v3.7
+#14092 - Remove backward compatibility for importing plugin resources from extras.plugins (now netbox.plugins)
+#14638 - Drop support for Python 3.8 and 3.9
+#14657 - Remove backward compatibility for old permissions mapping under ActionsMixin
+#14658 - Remove backward compatibility for importing process_webhook() from extras.webhooks_worker (now extras.webhooks.send_webhook())
+#14740 - Remove the obsolete BootstrapMixin form mixin class
+#15042 - The logic for registering models & model features now executes under the ready() method of individual app configs, rather than relying on the class_prepared signal
+#15099 - Remove obsolete device_role and device_role_id filters for devices
+#15100 - Remove obsolete NullableCharField class
+#15154 - The installation documentation been extended to include instructions and an example configuration file for uWSGI as an alternative to gunicorn
+#15193 - Switch to compiled distribution of the psycopg library
+#15277 - Replace references to ContentType without ObjectType proxy model & standardize field names
+#15292 - Remove obsolete device_role attribute from Device model (this field was renamed to role in v3.6)
+#15357 - The object_type field on the CustomField model has been renamed to related_object_type to avoid confusion with its object_types field
+#15401 - PostgreSQL indexes and sequence tables for the relocated L2VPN models (see #14311) have been renamed
+#15462 - Relocate resources from the utilities.utils module
+#15464 - The many-to-many relationships for ObjectPermission are now defined on the custom User and Group models
